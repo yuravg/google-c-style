@@ -1,8 +1,8 @@
-;;; google-c-style.el --- Google's C/C++ style for c-mode
+;;; google-c-style-2s.el --- Google's C/C++ style for c-mode
 
 ;; Keywords: c, tools
 
-;; google-c-style.el is Copyright (C) 2008 Google Inc. All Rights Reserved.
+;; google-c-style-2s.el is Copyright (C) 2008 Google Inc. All Rights Reserved.
 ;;
 ;; It is free software; you can redistribute it and/or modify it under the
 ;; terms of either:
@@ -15,10 +15,10 @@
 ;;; Commentary:
 
 ;; Provides the google C/C++ coding style. You may wish to add
-;; `google-set-c-style' to your `c-mode-common-hook' after requiring this
+;; `google-set-c-style-2s' to your `c-mode-common-hook' after requiring this
 ;; file. For example:
 ;;
-;;    (add-hook 'c-mode-common-hook 'google-set-c-style)
+;;    (add-hook 'c-mode-common-hook 'google-set-c-style-2s)
 ;;
 ;; If you want the RETURN key to go to the next line and space over
 ;; to the right place, add this to your .emacs right after the load-file:
@@ -65,7 +65,7 @@ Suitable for inclusion in `c-offsets-alist'."
     (vector (+ 4 (current-column)))))
 
 ;;;###autoload
-(defconst google-c-style
+(defconst google-c-style-2s
   `((c-recognize-knr-p . nil)
     (c-enable-xemacs-performance-kludge-p . t) ; speed up indentation in XEmacs
     (c-basic-offset . 2)
@@ -128,16 +128,16 @@ Suitable for inclusion in `c-offsets-alist'."
                         (statement-case-intro . +) ; case w/o {
                         (access-label . /)
                         (innamespace . 0))))
-  "Google C/C++ Programming Style.")
+  "Style with two spaces is based on Google C/C++ Programming Style.")
 
 ;;;###autoload
-(defun google-set-c-style ()
+(defun google-set-c-style-2s ()
   "Set the current buffer's c-style to Google C/C++ Programming
   Style. Meant to be added to `c-mode-common-hook'."
   (interactive)
   (make-local-variable 'c-tab-always-indent)
   (setq c-tab-always-indent t)
-  (c-add-style "Google" google-c-style t))
+  (c-add-style "Google2Space" google-c-style-2s t))
 
 ;;;###autoload
 (defun google-make-newline-indent ()
@@ -147,5 +147,5 @@ Suitable for inclusion in `c-offsets-alist'."
   (define-key c-mode-base-map "\C-m" 'newline-and-indent)
   (define-key c-mode-base-map [ret] 'newline-and-indent))
 
-(provide 'google-c-style)
-;;; google-c-style.el ends here
+(provide 'google-c-style-2s)
+;;; google-c-style-2s.el ends here
