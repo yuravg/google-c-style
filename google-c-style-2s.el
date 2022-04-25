@@ -123,11 +123,11 @@ Suitable for inclusion in `c-offsets-alist'."
                              'c-lineup-assignments)
                           ++))
                         (label . /)
-                        (case-label . +)
+                        (case-label . 2)
                         (statement-case-open . +)
                         (statement-case-intro . +) ; case w/o {
-                        (access-label . /)
-                        (innamespace . 0))))
+                        (access-label . -2)
+                        (innamespace . 2))))
   "Style with two spaces is based on Google C/C++ Programming Style.")
 
 ;;;###autoload
